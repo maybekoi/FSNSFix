@@ -14,7 +14,7 @@ string[] csFiles = Directory.GetFiles(folderPath, "*.cs", SearchOption.AllDirect
 foreach (string file in csFiles)
 {
     string[] lines = File.ReadAllLines(file);
-    if (!lines.Any(line => line.Trim() == "namespace Celeste;")) continue; // Monocle, FMOD, FMOD.Studio
+    if (!lines.Any(line => line.Trim() == "namespace Celeste;")) continue; // Celeste, Monocle, FMOD, FMOD.Studio, S2HD, SonicOrca
 
     StringBuilder newContent = new StringBuilder();
     bool foundNamespace = false;
@@ -24,9 +24,9 @@ foreach (string file in csFiles)
     {
         string trimmedLine = line.Trim();
         
-        if (trimmedLine == "namespace Celeste;")  // Monocle, FMOD, FMOD.Studio
+        if (trimmedLine == "namespace Celeste;")  // Celeste, Monocle, FMOD, FMOD.Studio, S2HD, SonicOrca
         {
-            newContent.AppendLine("namespace Celeste");  // Monocle, FMOD, FMOD.Studio
+            newContent.AppendLine("namespace Celeste");  // Celeste, Monocle, FMOD, FMOD.Studio, S2HD, SonicOrca
             newContent.AppendLine("{");
             foundNamespace = true;
             inUsingBlock = false;
